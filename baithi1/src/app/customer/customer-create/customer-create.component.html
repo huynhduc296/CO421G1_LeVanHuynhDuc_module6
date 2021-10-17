@@ -1,0 +1,69 @@
+<body>
+<h5 style="text-align: center">ADD NEW CUSTOMER</h5>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-7" style="font-size: 14px">
+      <form [formGroup]="customerFormGroup" (ngSubmit)="submit()">
+        <div class="form-group">
+          IdCustomer:
+          <input type="text" class="form-control input-sm" formControlName="idCustomer">
+          <span style="color: red"
+                *ngIf="customerFormGroup.controls.idCustomer.hasError('pattern')
+         && customerFormGroup.controls.idCustomer.dirty">
+                idCustomer not matching</span>
+        </div>
+        <div class="form-group">
+          Name:
+          <input type="text" class="form-control input-sm" formControlName="name">
+        </div>
+        <div class="form-group">
+          Date of birth:
+          <input type="date" class="form-control input-sm" formControlName="dateOfBirth">
+        </div>
+        <div class="form-group">
+          Id card:
+          <input type="text" class="form-control input-sm" formControlName="idCard">
+          <span style="color: red"
+                *ngIf="customerFormGroup.controls.idCard.hasError('pattern')
+         && customerFormGroup.controls.idCard.dirty">
+                idCard not matching</span>
+        </div>
+        <div class="form-group">
+          Number phone:
+          <input type="text" class="form-control input-sm" formControlName="phone">
+          <span style="color: red"
+                *ngIf="customerFormGroup.controls.phone.hasError('pattern')
+         && customerFormGroup.controls.phone.dirty">
+                phone not matching</span>
+        </div>
+        <div class="form-group">
+          Email:
+          <input type="text" class="form-control input-sm" formControlName="email">
+          <span style="color: red"
+                *ngIf="customerFormGroup.controls.email.hasError('email')
+         && customerFormGroup.controls.email.dirty">
+                email not matching</span>
+        </div>
+        <div class="form-group">
+          Address:
+          <input type="text" class="form-control input-sm" formControlName="address">
+        </div>
+        <div class="form-group">
+          Type customer:
+            <select class="form-control" formControlName="typeCustomer" required>
+              <option *ngFor="let typeCustomer of typeCustomers" [ngValue]="typeCustomer">{{typeCustomer.name}}</option>
+            </select>
+          <p style="color: red"
+                *ngIf="customerFormGroup.hasError('isemptycode',['typeCustomer'])
+      && customerFormGroup.get('typeCustomer').pristine">is Empty</p>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!customerFormGroup.valid">Add</button>
+        <a type="button" class="btn btn-success" routerLink="/customer/list">Close</a>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+

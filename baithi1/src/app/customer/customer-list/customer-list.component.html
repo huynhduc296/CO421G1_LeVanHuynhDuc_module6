@@ -1,0 +1,71 @@
+<body
+  style="height: 600px;background-image: url('https://i.pinimg.com/originals/4c/32/b8/4c32b8c9d316da2348be65685f578264.jpg')">
+
+
+<h1>List Customer</h1>
+
+<div class="container-fluid" style="height: 340px">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+      <tr style="font-size: 22px; font-weight: bold;">
+        <td><a class="btn" (click)="sortId()" style="font-size: 22px; font-weight: bold;">ID <i class="fas fa-sort"></i></a></td>
+        <th>NAME</th>
+        <th>dateOfBirth</th>
+        <th>EMAIL</th>
+        <th>TYPE</th>
+        <th colspan="2" style="text-align: center">ACTION</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customers | slice: (page-1) *  pageSize: page * pageSize">
+        <td>{{customer.customerId}}</td>
+        <td>{{customer.customerName}}</td>
+        <td>{{customer.customerBirthday}}</td>
+        <td>{{customer.customerEmail}}</td>
+        <td>{{customer.customerType.customerTypeName}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" [routerLink]="['/customer/update',customer.id]">Update</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                  (click)="passData(customer.id, customer.customerName)">Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="message != ''">
+      <h5 style="text-align: center; color: red; width: 100%; margin-top: 50px">{{message}}</h5>
+    </ng-container>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want delete {{nameDelete}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteById(idDelete)">Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <ngb-pagination style="margin-left: auto" [collectionSize]="(length/pageSize)*10" [(page)]="page" [maxSize]="1"
+                  [boundaryLinks]="true"></ngb-pagination>
+
+</div>
+</body>

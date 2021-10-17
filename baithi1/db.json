@@ -1,0 +1,109 @@
+{
+  "customerList": [
+    {
+      "id": 2,
+      "idCustomer": "KH-0002",
+      "name": "Nguyen M",
+      "idCard": "145141521",
+      "dateOfBirth": "2021-09-08",
+      "phone": "090451451",
+      "email": "b@gmail.com",
+      "address": "Ha Noi",
+      "typeCustomer": [
+        {
+          "id": "1",
+          "name": "diamond",
+          "amount": 4
+        },
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "idCustomer": "KH-0003",
+      "name": "Nguyen C",
+      "idCard": "145141452",
+      "dateOfBirth": "2021-06-02",
+      "phone": "090451452",
+      "email": "c@gmail.com",
+      "address": "Da Nang",
+      "typeCustomer": [
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 3
+        },
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "idCustomer": "KH-0004",
+      "name": "Nguyen D",
+      "idCard": "145141455",
+      "dateOfBirth": "2021-06-02",
+      "phone": "090451423",
+      "email": "090451423",
+      "address": "Hue",
+      "typeCustomer": [
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 3
+        },
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "idCustomer": "KH-0001",
+      "name": "ywyw",
+      "idCard": "123123123",
+      "dateOfBirth": "2021-06-12",
+      "phone": "0904562156",
+      "email": "ss@mg",
+      "address": "123123",
+      "typeCustomer": [
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 3
+        },
+        {
+          "id": "2",
+          "name": "platinum",
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "typeCustomerList": [
+    {
+      "id": "1",
+      "name": "diamond",
+      "amount": 0
+    },
+    {
+      "id": "2",
+      "name": "platinum",
+      "amount": 0
+    },
+    {
+      "id": "3",
+      "name": "gold",
+      "amount": 0
+    }
+  ]
+}

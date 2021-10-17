@@ -1,0 +1,128 @@
+<body>
+<h5 style="text-align: center">ADD NEW CUSTOMER</h5>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-7" style="font-size: 14px">
+      <form [formGroup]="customerFormGroup" *ngIf="customerFormGroup" (ngSubmit)="updateCustomer()">
+        <input type="hidden" class="form-control input-sm" formControlName="id">
+        <div class="form-group">
+          IdCustomer:
+          <input type="text" class="form-control input-sm" formControlName="idCustomer">
+        </div>
+        <div class="form-group">
+          Name:
+          <input type="text" class="form-control input-sm" formControlName="name">
+        </div>
+        <div class="form-group">
+          Date of birth:
+          <input type="date" class="form-control input-sm" formControlName="dateOfBirth">
+        </div>
+        <div class="form-group">
+          Id card:
+          <input type="text" class="form-control input-sm" formControlName="idCard">
+        </div>
+        <div class="form-group">
+          Number phone:
+          <input type="text" class="form-control input-sm" formControlName="phone">
+        </div>
+        <div class="form-group">
+          Email:
+          <input type="text" class="form-control input-sm" formControlName="email">
+        </div>
+        <div class="form-group">
+          Address:
+          <input type="text" class="form-control input-sm" formControlName="address">
+        </div>
+        <div class="form-group">
+          Type customer:
+          <button id="taisan" type="button" class="btn btn-outline-secondary"
+                  data-toggle="modal" data-target="#exampleModal" style="width: 100%">type customer
+          </button>
+        <table>
+          <tr *ngFor="let type of customer.typeCustomer">
+            <td>{{type.name}}</td>
+            <td>{{type.amount}}</td>
+          </tr>
+        </table>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!customerFormGroup.valid">Submit</button>
+        <a type="button" class="btn btn-success" routerLink="/customer/list">Close</a>
+        <!-- Modal danh sach tai san-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Chọn tài sản</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row" style="width: 100%">
+                    <input style="width: 200px" placeholder="nhập tên tài sản"
+                           type="text"
+                           class="form-control" aria-label="Small"
+                           aria-describedby="inputGroup-sizing-sm">
+                    &ensp;
+                    <button type="button" class="btn btn-success">Tìm</button>
+                  </div>
+                  <br>
+                  <div class="row">
+
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr class="table-active">
+                        <th scope="col">tài sản</th>
+                        <th scope="col">trong kho (cái)</th>
+                        <th scope="col">số lượng thêm</th>
+                        <th scope="col"></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let type of typeCustomers">
+                        <th scope="row">{{type.name}}</th>
+                        <td>100</td>
+                        <td><input type="number" style="width: 90px" value="{{type.amount}}"></td>
+                        <td>
+                          <button type="button" class="btn btn-warning">sửa
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="row" style="width: 100%">
+                      <ul class="pagination ml-auto">
+                        <li class="page-item"><a class="page-link"
+                                                 href="#">Trước</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">Sau</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng
+                </button>
+                <button type="button" class="btn btn-primary" style="min-width: 70px;">Lưu
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
